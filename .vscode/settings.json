@@ -1,0 +1,8 @@
+{
+    "appService.zipIgnorePattern": [
+        "node_modules{,/**}",
+        ".vscode{,/**}"
+    ],
+    "appService.defaultWebAppToDeploy": "/subscriptions/af252c70-9c6b-46f7-9ec3-ba1f34dde90a/resourceGroups/najastore/providers/Microsoft.Web/sites/najastore",
+    "appService.deploySubpath": ""
+}

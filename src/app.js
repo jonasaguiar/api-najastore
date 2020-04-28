@@ -7,6 +7,7 @@ const config = require('./config');
 const app = express();
 const router = express.Router();
 
+app.listen(3333);
 //conexão do banco
 mongoose.connect(config.connectionString, {useNewUrlParser: true, useUnifiedTopology: true})
 .then (() => console.log ('Conexão com o banco de dados bem-sucedida !!'))

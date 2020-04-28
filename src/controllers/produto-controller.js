@@ -1,4 +1,5 @@
-
+const express = require('express');
+const router = express.Router();
 const mongoose = require('mongoose');
 const Produto = mongoose.model('Produto');
 const ValidationContract = require('../validators/fluent-validator');
@@ -8,14 +9,15 @@ const config = require('../config');
 const guid = require('guid');
 
 
-exports.get = async(req, res, next) => {
+exports.get = async (req, res, next) =>  {
+      
     try {
         var data = await repository.get();
         res.status(200).send(data);
     } catch (error) {
-        res.status(500).send({
-            message: "Falha ao processar requisição."
-        })
+        //res.status(500).send({
+   //   message: "Falha ao processar requisição."
+    //   })
     }
    
 }
@@ -26,12 +28,13 @@ exports.ByCategoria = async(req, res, next) => {
         res.status(200).send(data);
     } catch (error) {
         res.status(500).send({
-            message: "Falha ao processar requisição."
-        })
+           message: "Falha ao processar requisição."
+       })
     }
     
 
 }
+
 
 exports.post = async(req, res, next) => {
 
@@ -69,22 +72,27 @@ exports.post = async(req, res, next) => {
 
 
 
-        await repository.Create({
+        await repository.create({
             nome: req.body.nome,
             valor: req.body.valor,
             quantidade: req.body.quantidade,
             categoria: req.body.categoria,
-            image: 'https://najastore.blob.core.windows.net/produto-images/' + filename
+            imagem: 'https://najastore.blob.core.windows.net/produto-images/' + filename
         })
-        res.status(201).send({
-                message: 'Produto cadastrado com sucesso!'
-            });
+       res.status(201).send({
+         message: 'Produto cadastrado com sucesso!'
+      });
     } catch (error) {
         res.status(500).send({
             message: "Falha ao processar requisição."
     })
     }
 }
+
+
+
+
+
 
 
 exports.put = async(req, res, next) => {

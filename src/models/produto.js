@@ -20,7 +20,7 @@ const schema = new Schema({
         required: true,
         trim: true
     },
-    image: {
+    imagem: {
         type: String,
         required: true,
         trim: true

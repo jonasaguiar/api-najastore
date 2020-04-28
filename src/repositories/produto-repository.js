@@ -14,7 +14,7 @@ exports.getByCategoria = async(categoria) => {
     return res;
 }
 
-exports.Create = async(data) => {
+exports.create = async(data) => {
     var produto = new Produto(data);
     await produto.save();
 }
@@ -25,7 +25,8 @@ exports.update = async(id, data) => {
             nome: data.nome,
             valor: data.valor,
             quantidade: data.quantidade,
-            categoria: data.categoria
+            categoria: data.categoria,
+            imagem: data.imagem
         }
 })}
 
